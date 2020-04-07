@@ -1,0 +1,37 @@
+
+{
+  "manifest_version": 2,
+  "name": "Video Fast Forward",
+  "version": "1.0",
+  "description": "Fast Forwards Videos",
+  "icons": {
+    "16": "Icons/16.png",
+    "48": "Icons/48.png",
+    "128": "Icons/128.png"
+  },
+
+  "browser_action": {
+    "default_icon": "Icons/default.png",
+    "default_title": "Fast Video"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.hulu.com/"
+      ],
+      "js": ["StartContentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "permissions": [
+    "tabs",
+    "webNavigation",
+    "*://*.hulu.com/watch/*"
+  ]
+}
